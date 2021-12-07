@@ -1,10 +1,7 @@
 import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
-import AnimalRepository from "../../repositories/AnimalRepository";
-import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
-import Settings from "../../repositories/Settings";
-import LocationRepository from "../../repositories/LocationRepository";
-import "bootstrap/dist/css/bootstrap.min.css"
+import useSimpleAuth from "../Auth/useSimpleAuth";
+
 import "./NavBar.css"
 
 
@@ -26,10 +23,10 @@ export const NavBar = () => {
                             <Link className="nav-link" to="/">Grind It Out <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/locations">Games</Link>
+                            <Link className="nav-link" to="/games">Games</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/animals">Grinds</Link>
+                            <Link className="nav-link" to="/grinds">Grinds</Link>
                         </li>
                         
                         

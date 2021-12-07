@@ -1,11 +1,10 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
-import Login from "./auth/Login"
-import { Register } from "./auth/Register"
+import Login from "../Components/Auth/Login"
+import { Register } from "./Auth/Register"
 import { NavBar } from "./nav/NavBar"
 import ApplicationViews from "./ApplicationViews"
 import useSimpleAuth from "./Auth/useSimpleAuth"
-import "bootstrap/dist/css/bootstrap.min.css"
 import "./GrindItOut.css"
 
 

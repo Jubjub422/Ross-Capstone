@@ -5,13 +5,13 @@ import { Route } from "react-router-dom"
 export default () => {
     return (
         <>
-            <Route exact path="/grinds">
+            {/* <Route exact path="/grinds">
                 <GrindList />
             </Route>
             
             <Route path="/grinds/:userId(/d+)">
                 <MyGrinds />
-            </Route>
+            </Route> */}
         </>
     )
 }

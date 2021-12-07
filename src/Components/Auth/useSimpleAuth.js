@@ -1,4 +1,6 @@
-import Settings from "../../repositories/Settings"
+import Settings from "../../Repositories/Settings"
+
+
 
 
 const useSimpleAuth = () => {

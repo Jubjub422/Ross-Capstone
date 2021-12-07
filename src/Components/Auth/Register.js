@@ -16,7 +16,8 @@ export const Register = () => {
         e.preventDefault()
 
         const newUser = {
-            name: `${credentials.firstName} ${credentials.lastName}`,
+            name: `${credentials.firstName}`,
+            userName: `${credentials.userName}`,
             email: credentials.email,
         }
 
@@ -37,7 +38,7 @@ export const Register = () => {
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register to make a Grind.</h1>
                 <fieldset>
-                    <label htmlFor="firstName"> Name </label>
+                    <label htmlFor="Name"> Name </label>
                     <input type="text" onChange={handleUserInput}
                         id="Name"
                         className="form-control"
@@ -45,9 +46,9 @@ export const Register = () => {
                         required autoFocus />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="lastName"> UserName </label>
+                    <label htmlFor="UserName"> UserName </label>
                     <input type="text" onChange={handleUserInput}
-                        id="lastName"
+                        id="UserName"
                         className="form-control"
                         placeholder="User name"
                         required />
