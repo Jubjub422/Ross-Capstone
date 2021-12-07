@@ -7,7 +7,7 @@ export default {
         // await response of fetch call, only return once promise is resolved
         return await fetchIt(`${Settings.remoteURL}/tasks/${id}`)
     },
-    async createAccount(task) {
+    async addTask(task) {
         return await fetchIt(`${Settings.remoteURL}/tasks`, "POST", JSON.stringify(task))
     },
     async delete(id) {

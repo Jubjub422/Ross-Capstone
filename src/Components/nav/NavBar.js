@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import useSimpleAuth from "../Auth/useSimpleAuth";
-
+import "bootstrap/dist/css/bootstrap.min.css"
 import "./NavBar.css"
 
 

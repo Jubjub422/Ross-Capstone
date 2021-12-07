@@ -1,6 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { GrindListComponent } from "../Grinds/GrindList"
+import { NewGrindForm } from "../Grinds/NewGrindForm"
 
 
 export default () => {
@@ -10,11 +11,11 @@ export default () => {
                 <GrindListComponent />
             </Route>
 
-            {/* <Route path="/grinds/new">
+            <Route path="/grinds/new">
                 <NewGrindForm />
             </Route>
 
-            <Route path="/grinds/:grindId(/d+)">
+            {/* <Route path="/grinds/:grindId(/d+)">
                 <GrindDetail />
             </Route>
             
