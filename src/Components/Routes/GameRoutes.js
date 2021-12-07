@@ -1,7 +1,5 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { GameList } from "../Games/GameList"
-import { NewGameForm } from "../Games/NewGameForm"
 
 
 export default () => {

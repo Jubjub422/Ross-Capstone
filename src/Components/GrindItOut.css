@@ -40,6 +40,7 @@ address {
 
 .form--login {
     background-position-x: right;
+    background-image: url(logo.png);
     z-index: 1;
     min-width: 45rem;
     background-color: hsla(0,0%,100%,0.40);

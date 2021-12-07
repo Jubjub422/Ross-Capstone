@@ -1,5 +1,5 @@
 import React from "react"
-import { Route } from "react-router"
+import { Route } from "react-router-dom"
 import GameRoutes from "./Routes/GameRoutes"
 import GrindRoutes from "./Routes/GrindRoutes"
 import UserRoutes from "./Routes/UserRoutes"
@@ -8,9 +8,10 @@ import UserRoutes from "./Routes/UserRoutes"
 
 export default () => {
     return (
-        
-            
-           " Hello"
-        
+        <>
+            <GameRoutes/>
+            <GrindRoutes/>
+            <UserRoutes/>
+        </>
     )
 }

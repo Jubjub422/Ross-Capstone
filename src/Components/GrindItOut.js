@@ -1,14 +1,12 @@
 import React from "react"
-
-import { Route } from 'react-router'
-import { Redirect} from 'react-router-dom';
-import Login from "./Auth/Login"
-import {Register} from "./Auth/Register"
-// import { NavBar } from "./nav/NavBar"
+import { Route, Redirect } from "react-router-dom"
+import Login from "./auth/Login"
+import { Register } from "./auth/Register"
+import { NavBar } from "./nav/NavBar"
 import ApplicationViews from "./ApplicationViews"
 import useSimpleAuth from "./Auth/useSimpleAuth"
+import "bootstrap/dist/css/bootstrap.min.css"
 import "./GrindItOut.css"
-
 
 
 export const GrindItOut = () => {
@@ -18,7 +16,7 @@ export const GrindItOut = () => {
         <Route render={() => {
             if (isAuthenticated()) {
                 return <>
-                    
+                    <NavBar />
                     <ApplicationViews />
                 </>
             } else {
@@ -30,6 +28,7 @@ export const GrindItOut = () => {
         </Route>
         <Route path="/register">
             <Register />
-        </Route> 
+        </Route>
+        
     </>
 }

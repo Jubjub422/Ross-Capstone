@@ -1,6 +1,10 @@
 import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
-import useSimpleAuth from "../Auth/useSimpleAuth"
+import AnimalRepository from "../../repositories/AnimalRepository";
+import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
+import Settings from "../../repositories/Settings";
+import LocationRepository from "../../repositories/LocationRepository";
+import "bootstrap/dist/css/bootstrap.min.css"
 import "./NavBar.css"
 
 
