@@ -1,5 +1,4 @@
-import Settings from "../../repositories/Settings"
-
+import Settings from "../../Repositories/Settings"
 
 const useSimpleAuth = () => {
 
@@ -20,9 +19,7 @@ const useSimpleAuth = () => {
         .then(_ => _.json())
         .then(response => {
             if ("id" in response) {
-                const baseUserObject = JSON.stringify(response)
-                let encoded = Buffer.from(baseUserObject).toString("base64")
-                localStorage.setItem("gamer_token", encoded)
+                localStorage.setItem("gamer_token")
             }
         })
     }
@@ -40,9 +37,7 @@ const useSimpleAuth = () => {
         .then(_ => _.json())
         .then(matchingUsers => {
             if (matchingUsers.length > 0) {
-                const baseUserObject = JSON.stringify(matchingUsers[0])
-                let encoded = Buffer.from(baseUserObject).toString("base64")
-                localStorage.setItem("gamer_token", encoded)
+                localStorage.setItem("gamer_token")
                 return true
             }
             return false
@@ -62,11 +57,8 @@ const useSimpleAuth = () => {
     //Object.assign takes a target and a source as arguments. Target (Object.create(null)) is a new empty object.
     //source is the new info from the unencoded and parsed token.
     const getCurrentUser = () => {
-        const encoded = localStorage.getItem("gamer_token")
-        const unencoded = Buffer.from(encoded, "base64").toString("utf8")
-        const parsed = JSON.parse(unencoded)
-        const bare = Object.assign(Object.create(null), parsed)
-        return bare
+        const user = localStorage.getItem("gamer_token")
+        return user
     }
 
     //return functions from parent function in the form of an object?
