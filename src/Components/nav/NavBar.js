@@ -26,7 +26,7 @@ export const NavBar = () => {
                             <Link className="nav-link" to="/games">Games</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/grinds">Grinds</Link>
+                            <Link className="nav-link" to="/grinds/:userId(/d+)">My Grinds</Link>
                         </li>
                         
                         
