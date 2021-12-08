@@ -90,8 +90,7 @@ export const NewGrindForm = () => {
                         className="btn btn-success "
                         onClick={() => {
                             GrindRepository.createNewGrind(newGrind)
-                                .then(() => GrindRepository.getAllGrinds())
-                                .then(setGrinds)
+                                
                                 .then(setNewGrind(
                                     {
                                         grindGoal: "",
@@ -100,7 +99,7 @@ export const NewGrindForm = () => {
                                         grindComplete: false,
                                         savedForCurrentUser: false
                                     }))
-                                .then(history.push(`/grinds`))
+                                .then(history.push(`/grinds/userGrinds`))
 
                         }}>
                         Form new grind?

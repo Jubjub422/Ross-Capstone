@@ -4,12 +4,12 @@ import { GrindListComponent } from "../Grinds/GrindList"
 import { NewGrindForm } from "../Grinds/NewGrindForm"
 import { TaskGenerator } from "../Grinds/Tasks"
 import { GrindByUser } from "../Grinds/GrindByUser"
-
+import { TasksByGrind } from "../Grinds/TasksByGrind"
 
 export default () => {
     return (
         <>
-            <Route exact path="/grinds">
+            <Route exact path="/">
                 <GrindListComponent />
             </Route>
 
@@ -20,11 +20,11 @@ export default () => {
                 <TaskGenerator />
             </Route>
 
-            {/* <Route path="/grinds/:grindId(/d+)">
-                <GrindDetail />
-            </Route> */}
+            <Route path="/grinds/specificGrind">
+                <TasksByGrind />
+            </Route>
             
-            <Route path="/grinds/:userId(/d+)">
+            <Route exact path="/grinds/userGrinds">
                 <GrindByUser />
             </Route>
         </>
