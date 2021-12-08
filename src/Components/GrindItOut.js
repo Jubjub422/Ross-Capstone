@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import Login from "../Components/Auth/Login"
 import { Register } from "./Auth/Register"
 import { NavBar } from "./nav/NavBar"
-import ApplicationViews from "./ApplicationViews"
+import { ApplicationViews } from "./ApplicationViews"
 import useSimpleAuth from "./Auth/useSimpleAuth"
 import "./GrindItOut.css"
 

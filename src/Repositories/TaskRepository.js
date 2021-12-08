@@ -14,6 +14,6 @@ export default {
         return await fetchIt(`${Settings.remoteURL}/tasks/${id}`, "DELETE")
     },
     async getAllTasks() {
-        return await fetchIt(`${Settings.remoteURL}/tasks`)
+        return await fetchIt(`${Settings.remoteURL}/tasks?_expand=grind`)
     }
 }

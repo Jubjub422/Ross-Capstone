@@ -30,11 +30,21 @@ export const GrindListComponent = () => {
             })
         }
         {
+            
             <div className="centerChildren btn--newResource">
             <button type="button"
                 className="btn btn-success "
                 onClick={() => { history.push("/grinds/new") }}>
                 Make a new grind
+            </button>
+        </div>
+        }
+        {
+            <div className="centerChildren btn--newResource">
+            <button type="button"
+                className="btn btn-success "
+                onClick={() => { history.push("/tasks") }}>
+                Want to add tasks to existing grinds?
             </button>
         </div>
         }

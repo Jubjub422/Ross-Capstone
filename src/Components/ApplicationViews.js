@@ -5,7 +5,7 @@ import UserRoutes from "./Routes/UserRoutes"
 
 
 
-export default () => {
+export const ApplicationViews = () => {
     return (
         <>
             <GameRoutes/>

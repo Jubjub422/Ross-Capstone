@@ -7,7 +7,7 @@ export default {
         // await response of fetch call, only return once promise is resolved
         return await fetchIt(`${Settings.remoteURL}/grinds/${id}`)
     },
-    async createAccount(grind) {
+    async createNewGrind(grind) {
         return await fetchIt(`${Settings.remoteURL}/grinds`, "POST", JSON.stringify(grind))
     },
     async delete(id) {
