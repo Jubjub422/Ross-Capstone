@@ -1,7 +1,7 @@
 import React from "react"
 import GameRoutes from "./Routes/GameRoutes"
 import GrindRoutes from "./Routes/GrindRoutes"
-import UserRoutes from "./Routes/UserRoutes"
+import TaskRoutes from "./Routes/TaskRoutes"
 
 
 
@@ -10,7 +10,8 @@ export const ApplicationViews = () => {
         <>
             <GameRoutes/>
             <GrindRoutes/>
-            <UserRoutes/>
+            <TaskRoutes/>
+            
         </>
     )
 }

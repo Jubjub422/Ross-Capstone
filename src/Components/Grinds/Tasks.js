@@ -39,6 +39,7 @@ export const TaskGenerator = () => {
 
     return (
         <>
+        <section>
             <h3>Which grind is this task for?</h3>
             {
                 <select
@@ -76,8 +77,9 @@ export const TaskGenerator = () => {
 
 
 
-
-            <h3>Tasks to be added to the grind:</h3>
+            {newTask.grindId
+            ?<div>
+            <h3>Current tasks in grind:</h3>
             <li>
                 {
                     newTask.grindId === currentGrind.id
@@ -89,7 +91,8 @@ export const TaskGenerator = () => {
                         : ""
                 }
             </li>
-            {
+            {<div>
+                <h3>Tasks to be added to the grind:</h3>
                 <input type="text" value={inputValue} className="newTaskInput" placeholder="New Task"
                     onChange={(event) => {
                         const taskCopy = { ...newTask }
@@ -99,8 +102,7 @@ export const TaskGenerator = () => {
                     }}
                 >
                 </input>
-            }
-            {
+            
                 <button
                     onClick={() => {
 
@@ -114,9 +116,12 @@ export const TaskGenerator = () => {
                     }}
 
                 >Add New Task</button>
+                </div>
             }
-
-
+            </div>
+            :""
+}
+</section>
         </>
     )
 

@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Link, useHistory } from "react-router-dom"
+import React from "react"
+import { Link } from "react-router-dom"
 import useSimpleAuth from "../Auth/useSimpleAuth";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./NavBar.css"
@@ -22,9 +22,9 @@ export const NavBar = () => {
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Grind It Out <span className="sr-only">(current)</span></Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link className="nav-link" to="/games">Games</Link>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <Link className="nav-link" to="/grinds/userGrinds">My Grinds</Link>
                         </li>
@@ -37,7 +37,7 @@ export const NavBar = () => {
                                 isAuthenticated()
                                     ? <Link onClick={() => {
                                         logout()
-                                    }} className="nav-link" to="/login">Logout {getCurrentUser().name}</Link>
+                                    }} className="nav-link" to="/login">Logout {getCurrentUser().userName}</Link>
                                     : <Link className="nav-link" to="/login">Login</Link>
                             }
                         </li>

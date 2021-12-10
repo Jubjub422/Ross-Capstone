@@ -17,7 +17,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 export const NewGrindForm = () => {
 
-    const [grinds, setGrinds] = useState([])
+    
     const { getCurrentUser } = useSimpleAuth()
     const [games, setGames] = useState([])
     const history = useHistory()
@@ -30,8 +30,7 @@ export const NewGrindForm = () => {
     })
 
     useEffect(() => {
-        GrindRepository.getAllGrinds().then(setGrinds)
-            .then(() => GameRepository.getAllGames())
+         GameRepository.getAllGames()
             .then(setGames)
     }, [])
 

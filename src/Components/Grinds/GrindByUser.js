@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom"
 import GrindRepository from "../../Repositories/GrindRepository"
 import TaskRepository from "../../Repositories/TaskRepository"
 import useSimpleAuth from "../Auth/useSimpleAuth"
-import { TasksByGrind } from "./TasksByGrind"
 
 
 
@@ -13,11 +12,11 @@ import { TasksByGrind } from "./TasksByGrind"
 export const GrindByUser = () => {
     const [showTasks, setShowTasks] = useState(false)
     const [tasks, setTasks] = useState([])
-    const [specificTasks, setSpecificTasks] = useState([])
+    const history = useHistory()
     const { getCurrentUser } = useSimpleAuth()
     const [specificGrind, setSpecificGrind] = useState({})
     const [grinds, setGrinds] = useState([])
-    const history = useHistory()
+    
     useEffect(() => {
         GrindRepository.getAllGrinds().then(data => setGrinds(data))
     }, [])
@@ -52,7 +51,7 @@ export const GrindByUser = () => {
                                         <li>
                                             {
                                                 foundTasks?.map(task => {
-                                                    return <ul>{task.task}</ul>
+                                                    return <ul key={task.id}>{task.task}</ul>
                                                 })
                                             }
                                         </li>
@@ -107,6 +106,15 @@ export const GrindByUser = () => {
                             return ""
                         }
                     })
+            }
+            {
+                <div className="centerChildren btn--newResource">
+                <button type="button"
+                    className="btn btn-success "
+                    onClick={() => { history.push("/tasks") }}>
+                    Want to add tasks to existing grinds?
+                </button>
+            </div>
             }
 
         </>
