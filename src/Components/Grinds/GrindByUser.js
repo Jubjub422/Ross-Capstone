@@ -16,7 +16,7 @@ export const GrindByUser = () => {
     const { getCurrentUser } = useSimpleAuth()
     const [specificGrind, setSpecificGrind] = useState({})
     const [grinds, setGrinds] = useState([])
-    
+
     useEffect(() => {
         GrindRepository.getAllGrinds().then(data => setGrinds(data))
     }, [])
@@ -44,34 +44,39 @@ export const GrindByUser = () => {
                 showTasks
                     ? grinds.map((grind) => {
                         if (specificGrind.id === grind.id) {
-                            return <div key={`${grind.id}`}>Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                            return <section>
                                 <div>
+                                    <img style={{ height: 100, width: 200 }} src={grind.game.image} alt={grind.gameName} />
+                                </div>
+                                <div key={`${grind.id}`}>Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
                                     <div>
+                                        <div>
 
-                                        <li>
-                                            {
-                                                foundTasks?.map(task => {
-                                                    return <ul key={task.id}>{task.task}</ul>
-                                                })
-                                            }
-                                        </li>
+                                            <li>
+                                                {
+                                                    foundTasks?.map(task => {
+                                                        return <ul key={task.id}>{task.task}</ul>
+                                                    })
+                                                }
+                                            </li>
 
+                                        </div>
+
+                                        <button id="button" className="grindExpand" value={grind.id} onClick={() => {
+                                            setSpecificGrind({})
+
+                                            toggleTaskDisplay()
+                                        }}>Return to Grind List</button>
                                     </div>
-
-                                    <button id="button" className="grindExpand" value={grind.id} onClick={() => {
-                                        setSpecificGrind({})
-
-                                        toggleTaskDisplay()
-                                    }}>Return to Grind List</button>
+                                    <div>
+                                        <button id="button" className="grindDelete" onClick={() => {
+                                            GrindRepository.delete(grind.id)
+                                                .then(() => GrindRepository.getAllGrinds())
+                                                .then(setGrinds)
+                                        }}> Delete this grind?</button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <button id="button" className="grindDelete" onClick={() => {
-                                        GrindRepository.delete(grind.id)
-                                            .then(() => GrindRepository.getAllGrinds())
-                                            .then(setGrinds)
-                                    }}> Delete this grind?</button>
-                                </div>
-                            </div>
+                            </section>
                         } else {
                             return ""
                         }
@@ -80,28 +85,33 @@ export const GrindByUser = () => {
 
                     : grinds.map((grind) => {
                         if (getCurrentUser().id === grind.user.id) {
-                            return <div key={`${grind.id}`}>Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                            return <section>
                                 <div>
-
-                                    <button id="button" className="grindExpand" value={grind.id} onClick={() => {
-                                        setSpecificGrind(grind)
-
-                                        toggleTaskDisplay()
-                                    }}>See tasks for this grind?</button>
+                                    <img style={{ height: 100, width: 200 }} src={grind.game.image} alt={grind.gameName} />
                                 </div>
+                                <div key={`${grind.id}`}>Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                                    <div>
+
+                                        <button id="button" className="grindExpand" value={grind.id} onClick={() => {
+                                            setSpecificGrind(grind)
+
+                                            toggleTaskDisplay()
+                                        }}>See tasks for this grind?</button>
+                                    </div>
 
 
 
 
 
-                                <div>
-                                    <button id="button" className="grindDelete" onClick={() => {
-                                        GrindRepository.delete(grind.id)
-                                            .then(() => GrindRepository.getAllGrinds())
-                                            .then(setGrinds)
-                                    }}> Delete this grind?</button>
+                                    <div>
+                                        <button id="button" className="grindDelete" onClick={() => {
+                                            GrindRepository.delete(grind.id)
+                                                .then(() => GrindRepository.getAllGrinds())
+                                                .then(setGrinds)
+                                        }}> Delete this grind?</button>
+                                    </div>
                                 </div>
-                            </div>
+                            </section>
                         } else {
                             return ""
                         }
@@ -109,12 +119,12 @@ export const GrindByUser = () => {
             }
             {
                 <div className="centerChildren btn--newResource">
-                <button type="button"
-                    className="btn btn-success "
-                    onClick={() => { history.push("/tasks") }}>
-                    Want to add tasks to existing grinds?
-                </button>
-            </div>
+                    <button type="button"
+                        className="btn btn-success "
+                        onClick={() => { history.push("/tasks") }}>
+                        Want to add tasks to existing grinds?
+                    </button>
+                </div>
             }
 
         </>

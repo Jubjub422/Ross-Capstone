@@ -39,16 +39,18 @@ export const GrindListComponent = () => {
 
     return (
         <>
-        {
-            showTasks
-            ?<h1>Specific Grind</h1>
-            :<h1>Main Grind List</h1>
-        }
+        
         {
             showTasks
             ?grinds.map((grind) => {
                 if (specificGrind.id === grind.id) {
-                    return <div key={`${grind.id}`}>Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                    return ( <section>
+                        <h3>{grind.grindGoal}</h3>
+                        <div>
+                        <img style={{height: 100, width: 200}} src={grind.game.image} alt={grind.gameName}/> 
+                        </div>
+                    <div key={`${grind.id}`} className="grind"> 
+                    Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
                         <div>
                             <div>
             
@@ -64,27 +66,41 @@ export const GrindListComponent = () => {
             
                             <button id="button" className="grindExpand" value={grind.id} onClick={() => {
                                 setSpecificGrind({})
-            
+                                
                                 toggleTaskDisplay()
                             }}>Return to Grind List</button>
                         </div>
                         
                     </div>
-                } else {
+                            </section>
+                    )} else {
                     return ""
                 }
-            })
-            : grinds.map((grind) => 
+              })
+            : 
+            <>
+            <h1> Check out these new Grinds</h1>
             {
-                return (<div key={`${grind.id}`}>Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
+            grinds.map((grind) => 
+            {
+                return (<section>
+
+                <div><img style={{height: 100, width: 200}} src={grind.game.image} alt={grind.gameName}/></div>
+                
+                <div key={`${grind.id}`} className="grind">Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
                 <div><button id="button" className="grindExpand" value={grind.id} onClick={() => {
                                 setSpecificGrind(grind)
 
                                 toggleTaskDisplay()
                             }}>Expand Grind</button>
                             </div>
-                </div>  )  
+                </div>  
+                </section>
+                )  
             })
+        }
+            </>
+       
         }
         {
            <section>
@@ -104,6 +120,7 @@ export const GrindListComponent = () => {
             </button>
         </div>
         </section>
+
         }
 
         </>

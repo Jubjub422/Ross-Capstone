@@ -16,7 +16,6 @@ export default () => {
                 <NewGrindForm />
             </Route>
             
-            
             <Route exact path="/grinds/userGrinds">
                 <GrindByUser />
             </Route>
