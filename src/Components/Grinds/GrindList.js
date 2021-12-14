@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
-import GrindRepository from "../../Repositories/GrindRepository"
-import TaskRepository from "../../Repositories/TaskRepository"
+import {GrindRepository} from "../../Repositories/GrindRepository"
+import {TaskRepository} from "../../Repositories/TaskRepository"
 
 
 
@@ -44,23 +44,23 @@ export const GrindListComponent = () => {
             showTasks
             ?grinds.map((grind) => {
                 if (specificGrind.id === grind.id) {
-                    return ( <section>
+                    return ( <section key={grind.id}>
                         <h3>{grind.grindGoal}</h3>
                         <div>
                         <img style={{height: 100, width: 200}} src={grind.game.image} alt={grind.gameName}/> 
                         </div>
-                    <div key={`${grind.id}`} className="grind"> 
+                    <div className="grind"> 
                     Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
                         <div>
                             <div>
             
-                                <li>
+                                <ul key = {grind.grindGoal}>
                                     {
                                         foundTasks.map(task => {
-                                            return <ul key={task.id}>{task.task}</ul>
+                                            return <li key={task.id}>{task.task}</li>
                                         })
                                     }
-                                </li>
+                                </ul>
             
                             </div>
             
@@ -83,7 +83,7 @@ export const GrindListComponent = () => {
             {
             grinds.map((grind) => 
             {
-                return (<section>
+                return (<section key={grind.id}>
 
                 <div><img style={{height: 100, width: 200}} src={grind.game.image} alt={grind.gameName}/></div>
                 

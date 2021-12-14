@@ -5,7 +5,7 @@ import { Register } from "./Auth/Register"
 import { NavBar } from "./nav/NavBar"
 import { ApplicationViews } from "./ApplicationViews"
 import useSimpleAuth from "./Auth/useSimpleAuth"
-import "./GrindItOut.css"
+
 
 
 export const GrindItOut = () => {

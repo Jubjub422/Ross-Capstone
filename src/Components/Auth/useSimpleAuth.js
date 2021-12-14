@@ -1,4 +1,4 @@
-import Settings from "../../Repositories/Settings"
+import {Settings} from "../../Repositories/Settings"
 
 
 

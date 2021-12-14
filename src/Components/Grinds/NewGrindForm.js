@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import GrindRepository from "../../Repositories/GrindRepository"
-import GameRepository from "../../Repositories/GameRepository"
+import {GrindRepository} from "../../Repositories/GrindRepository"
+import {GameRepository} from "../../Repositories/GameRepository"
 import useSimpleAuth from "../Auth/useSimpleAuth"
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
@@ -38,10 +38,10 @@ export const NewGrindForm = () => {
 
 
     return (
-        <form className="animalForm">
+        <form className="newGrindForm">
             <h2>Plan That Grind</h2>
             <div className="form-group">
-                <label htmlFor="animalName">Grind goal/name</label>
+                <label htmlFor="grindGoal">Grind goal/name</label>
                 <input
                     type="text"
                     required

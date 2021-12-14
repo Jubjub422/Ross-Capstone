@@ -1,7 +1,7 @@
-import Settings from "./Settings"
+import {Settings} from "./Settings"
 import { fetchIt } from "./Fetch"
 
-export default {
+export const GrindRepository = {
     // async function
     async getGrindById(id) {
         // await response of fetch call, only return once promise is resolved
@@ -15,5 +15,13 @@ export default {
     },
     async getAllGrinds() {
         return await fetchIt(`${Settings.remoteURL}/grinds?_expand=game&_expand=user`)
-    }
+    },
+
+    async updateGrind(editedGrind) {
+        return await fetchIt(
+            `${Settings.remoteURL}/grinds/${editedGrind.id}`,
+            "PUT",
+            JSON.stringify(editedGrind)
+        )
+    },
 }

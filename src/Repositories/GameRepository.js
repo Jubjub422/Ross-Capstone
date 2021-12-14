@@ -1,17 +1,17 @@
-import Settings from "./Settings"
+import {Settings} from "./Settings"
 import { fetchIt } from "./Fetch"
 
 // The “async” keyword declares an async function, which means two things: 
 // it automatically returns promises and can use the “await” keyword. 
 // An async function returns promises that are resolved with function’s return value or rejected with uncaught errors.
 
-export default {
+export const GameRepository = {
     // async function
     async getGameById(id) {
         // await response of fetch call, only return once promise is resolved
         return await fetchIt(`${Settings.remoteURL}/games/${id}`)
     },
-    async createAccount(game) {
+    async createGame(game) {
         return await fetchIt(`${Settings.remoteURL}/games`, "POST", JSON.stringify(game))
     },
     async delete(id) {

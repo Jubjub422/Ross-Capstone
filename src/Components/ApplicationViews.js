@@ -1,7 +1,7 @@
 import React from "react"
-import GameRoutes from "./Routes/GameRoutes"
-import GrindRoutes from "./Routes/GrindRoutes"
-import TaskRoutes from "./Routes/TaskRoutes"
+import {GrindRoutes} from "./Routes/GrindRoutes"
+import {TaskRoutes} from "./Routes/TaskRoutes"
+import {GameRoutes} from "./Routes/GameRoutes"
 
 
 

@@ -1,7 +1,7 @@
-import Settings from "./Settings"
+import { Settings } from "./Settings"
 import { fetchIt } from "./Fetch"
 
-export default {
+export const TaskRepository = {
     // async function
     async getTaskById(id) {
         // await response of fetch call, only return once promise is resolved

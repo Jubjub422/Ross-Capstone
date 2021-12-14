@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 import { TaskGenerator } from "../Grinds/Tasks"
 
 
-export default () => {
+export const TaskRoutes = () => {
     return (
         <> 
             <Route path="/tasks">

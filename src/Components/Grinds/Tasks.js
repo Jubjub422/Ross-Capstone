@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import TaskRepository from "../../Repositories/TaskRepository"
-import GrindRepository from "../../Repositories/GrindRepository"
+import {TaskRepository} from "../../Repositories/TaskRepository"
+import {GrindRepository} from "../../Repositories/GrindRepository"
 import useSimpleAuth from "../Auth/useSimpleAuth"
 
 

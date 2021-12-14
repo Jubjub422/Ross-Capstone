@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
-import GrindRepository from "../../Repositories/GrindRepository"
-import TaskRepository from "../../Repositories/TaskRepository"
+import { GrindRepository } from "../../Repositories/GrindRepository"
+import { TaskRepository } from "../../Repositories/TaskRepository"
 import useSimpleAuth from "../Auth/useSimpleAuth"
 
 
@@ -17,9 +17,12 @@ export const GrindByUser = () => {
     const [specificGrind, setSpecificGrind] = useState({})
     const [grinds, setGrinds] = useState([])
 
+
+
     useEffect(() => {
         GrindRepository.getAllGrinds().then(data => setGrinds(data))
     }, [])
+
     useEffect(() => {
         TaskRepository.getAllTasks()
             .then(setTasks)
@@ -38,17 +41,29 @@ export const GrindByUser = () => {
 
     return (
         <>
-            <h1>My Grinds</h1>
-
             {
                 showTasks
                     ? grinds.map((grind) => {
                         if (specificGrind.id === grind.id) {
-                            return <section>
+                            return <section key={grind.id}>
+                                <h1>{grind.grindGoal}</h1>
                                 <div>
                                     <img style={{ height: 100, width: 200 }} src={grind.game.image} alt={grind.gameName} />
                                 </div>
-                                <div key={`${grind.id}`}>Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                                <div key={`${grind.id}`}>Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                                    <div>
+                                        <input type="checkbox" onChange={
+                                            (evt) => {
+                                                if (evt.target.checked) {
+                                                    specificGrind.grindComplete = true
+                                                } else {
+                                                    specificGrind.grindComplete = false
+                                                }
+
+                                            }
+                                        } />Mark Grind as completed?
+                                    </div>
+
                                     <div>
                                         <div>
 
@@ -62,12 +77,28 @@ export const GrindByUser = () => {
 
                                         </div>
 
+                                        <div>
+                                            {
+                                                specificGrind.grindComplete
+                                                    ? ""
+                                                    : <button id="button" className="markGrindComplete" value={grind.id} onClick={() => {
+                                                        GrindRepository.updateGrind(specificGrind)
+                                                            .then(() =>
+                                                                GrindRepository.getAllGrinds()
+                                                            ).then(setGrinds)
+
+                                                    }}>Save Grind As Completed?</button>
+                                            }
+                                        </div>
+
+
                                         <button id="button" className="grindExpand" value={grind.id} onClick={() => {
                                             setSpecificGrind({})
 
                                             toggleTaskDisplay()
                                         }}>Return to Grind List</button>
                                     </div>
+
                                     <div>
                                         <button id="button" className="grindDelete" onClick={() => {
                                             GrindRepository.delete(grind.id)
@@ -77,6 +108,7 @@ export const GrindByUser = () => {
                                     </div>
                                 </div>
                             </section>
+
                         } else {
                             return ""
                         }
@@ -85,7 +117,9 @@ export const GrindByUser = () => {
 
                     : grinds.map((grind) => {
                         if (getCurrentUser().id === grind.user.id) {
-                            return <section>
+                            if (grind.grindComplete === false){
+
+                                return <section key={grind.id}>
                                 <div>
                                     <img style={{ height: 100, width: 200 }} src={grind.game.image} alt={grind.gameName} />
                                 </div>
@@ -93,25 +127,17 @@ export const GrindByUser = () => {
                                     <div>
 
                                         <button id="button" className="grindExpand" value={grind.id} onClick={() => {
-                                            setSpecificGrind(grind)
-
+                                            GrindRepository.getGrindById(grind.id).then(setSpecificGrind)
+                                            
                                             toggleTaskDisplay()
                                         }}>See tasks for this grind?</button>
                                     </div>
-
-
-
-
-
-                                    <div>
-                                        <button id="button" className="grindDelete" onClick={() => {
-                                            GrindRepository.delete(grind.id)
-                                                .then(() => GrindRepository.getAllGrinds())
-                                                .then(setGrinds)
-                                        }}> Delete this grind?</button>
-                                    </div>
                                 </div>
+
                             </section>
+                        } else {
+                            return `${grind.grindGoal} is Completed!`
+                        } 
                         } else {
                             return ""
                         }
