@@ -67,13 +67,13 @@ export const GrindByUser = () => {
                                     <div>
                                         <div>
 
-                                            <li>
+                                            <ul>
                                                 {
                                                     foundTasks?.map(task => {
-                                                        return <ul key={task.id}>{task.task}</ul>
+                                                        return <li key={task.id}>{task.task}</li>
                                                     })
                                                 }
-                                            </li>
+                                            </ul>
 
                                         </div>
 

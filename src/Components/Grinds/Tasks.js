@@ -80,17 +80,17 @@ export const TaskGenerator = () => {
             {newTask.grindId
             ?<div>
             <h3>Current tasks in grind:</h3>
-            <li>
+            <ul>
                 {
                     newTask.grindId === currentGrind.id
                         ? tasks.map(task =>
                             task.grindId === currentGrind.id
-                                ? <ul key={task.id}>{task.task}</ul>
+                                ? <li key={task.id}>{task.task}</li>
                                 : ""
                         )
                         : ""
                 }
-            </li>
+            </ul>
             {<div>
                 <h3>Tasks to be added to the grind:</h3>
                 <input type="text" value={inputValue} className="newTaskInput" placeholder="New Task"
