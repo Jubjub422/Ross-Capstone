@@ -5,7 +5,6 @@ import "./Login.css"
 
 export const Register = () => {
     const [credentials, syncAuth] = useState({
-        name: "",
         userName: "",
         email: "",
     })
@@ -16,7 +15,8 @@ export const Register = () => {
         e.preventDefault()
 
         const newUser = {
-            name: `${credentials.firstName} ${credentials.lastName}`,
+            
+            userName: `${credentials.userName}`,
             email: credentials.email,
         }
 
@@ -37,17 +37,9 @@ export const Register = () => {
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register to make a Grind.</h1>
                 <fieldset>
-                    <label htmlFor="firstName"> Name </label>
+                    <label htmlFor="userName"> UserName </label>
                     <input type="text" onChange={handleUserInput}
-                        id="Name"
-                        className="form-control"
-                        placeholder="Name"
-                        required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> UserName </label>
-                    <input type="text" onChange={handleUserInput}
-                        id="lastName"
+                        id="userName"
                         className="form-control"
                         placeholder="User name"
                         required />

@@ -1,17 +1,20 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { NewGameForm } from "../Games/NewGameForm"
 
 
-export default () => {
+
+
+
+
+export const GameRoutes = () => {
     return (
         <>
-            <Route exact path="/games">
-                <GameList />
-            </Route>
-            
-            <Route path="/games/new">
+            <Route exact path="/games/newgame">
                 <NewGameForm />
             </Route>
+
         </>
     )
+
 }

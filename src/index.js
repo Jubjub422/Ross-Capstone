@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import { GrindItOut } from './Components/GrindItOut'
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <GrindItOut />
-  </React.StrictMode>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

@@ -1,24 +1,26 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { GrindListComponent } from "../Grinds/GrindList"
+import { NewGrindForm } from "../Grinds/NewGrindForm"
+import { GrindsByCompleted } from "../Grinds/GrindsByComplete"
+import { GrindByUser } from "../Grinds/GrindByUser"
 
-
-export default () => {
+export const GrindRoutes = () => {
     return (
         <>
-            <Route exact path="/grinds">
-                <GrindList />
+            <Route exact path="/">
+                <GrindListComponent />
             </Route>
 
-            <Route path="/grinds/new">
+            <Route exact path="/grinds/new">
                 <NewGrindForm />
             </Route>
-
-            <Route path="/grinds/:grindId(/d+)">
-                <GrindDetail />
+            <Route exact path="/grinds/complete">
+                <GrindsByCompleted />
             </Route>
             
-            <Route path="/grinds/:userId(/d+)">
-                <MyGrinds />
+            <Route exact path="/grinds/userGrinds">
+                <GrindByUser />
             </Route>
         </>
     )

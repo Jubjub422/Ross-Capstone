@@ -52,24 +52,6 @@ const Login = () => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <input
-                            onChange={
-                                (event) => {
-                                    const copy = {...credentials}
-                                    if (event.target.value === "on") {
-                                        copy.remember = true
-                                    }
-                                    else {
-                                        copy.remember = false
-                                    }
-                                    syncAuth(copy)
-                                }
-                            }
-                            defaultChecked={credentials.remember}
-                            type="checkbox" name="remember" id="remember" />
-                        <label htmlFor="remember"> Remember Me </label>
-                    </fieldset>
-                    <fieldset>
                         <button type="submit">
                             Sign in
                     </button>
