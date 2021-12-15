@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import {GrindRepository} from "../../Repositories/GrindRepository"
 import {TaskRepository} from "../../Repositories/TaskRepository"
+import "./Grind.css"
 
 
 
@@ -44,13 +45,13 @@ export const GrindListComponent = () => {
             showTasks
             ?grinds.map((grind) => {
                 if (specificGrind.id === grind.id) {
-                    return ( <section key={grind.id}>
+                    return ( <section key={grind.id} className="grindItem">
                         <h3>{grind.grindGoal}</h3>
                         <div>
                         <img style={{height: 100, width: 200}} src={grind.game.image} alt={grind.gameName}/> 
                         </div>
                     <div className="grind"> 
-                    Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                     Game: {grind.game.gameName}, Creator: {grind.user.userName}
                         <div>
                             <div>
             
@@ -83,11 +84,12 @@ export const GrindListComponent = () => {
             {
             grinds.map((grind) => 
             {
-                return (<section key={grind.id}>
+                return (<section key={grind.id} className="grindItem">
+                    <h3>{grind.grindGoal}</h3>
 
                 <div><img style={{height: 100, width: 200}} src={grind.game.image} alt={grind.gameName}/></div>
                 
-                <div key={`${grind.id}`} className="grind">Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                <div key={`${grind.id}`} className="grind">Game: {grind.game.gameName}, Creator: {grind.user.userName}
                 <div><button id="button" className="grindExpand" value={grind.id} onClick={() => {
                                 setSpecificGrind(grind)
 
@@ -104,17 +106,15 @@ export const GrindListComponent = () => {
         }
         {
            <section>
-            <div className="centerChildren btn--newResource">
+            <div>
             <button type="button"
-                className="btn btn-success "
+                className="btn newGrind"
                 onClick={() => { history.push("/grinds/new") }}>
                 Make a new grind
             </button>
-        </div>
         
-            <div className="centerChildren btn--newResource">
-            <button type="button"
-                className="btn btn-success "
+            <button type="button addToGrind"
+                className="btn"
                 onClick={() => { history.push("/tasks") }}>
                 Want to add tasks to existing grinds?
             </button>

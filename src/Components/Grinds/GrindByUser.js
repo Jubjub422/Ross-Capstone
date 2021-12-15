@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import { GrindRepository } from "../../Repositories/GrindRepository"
 import { TaskRepository } from "../../Repositories/TaskRepository"
 import useSimpleAuth from "../Auth/useSimpleAuth"
-
+import "./Grind.css"
 
 
 
@@ -45,12 +45,12 @@ export const GrindByUser = () => {
                 showTasks
                     ? grinds.map((grind) => {
                         if (specificGrind.id === grind.id) {
-                            return <section key={grind.id}>
+                            return <section key={grind.id} className="grindItem specificGrind">
                                 <h1>{grind.grindGoal}</h1>
                                 <div>
                                     <img style={{ height: 100, width: 200 }} src={grind.game.image} alt={grind.gameName} />
                                 </div>
-                                <div key={`${grind.id}`}>Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                                <div key={`${grind.id}`}>Game: {grind.game.gameName}, Creator: {grind.user.userName}</div>
                                     <div>
                                         <input type="checkbox" onChange={
                                             (evt) => {
@@ -89,7 +89,7 @@ export const GrindByUser = () => {
 
                                                     }}>Save Grind As Completed?</button>
                                             }
-                                        </div>
+                                        
 
 
                                         <button id="button" className="grindExpand" value={grind.id} onClick={() => {
@@ -97,9 +97,7 @@ export const GrindByUser = () => {
 
                                             toggleTaskDisplay()
                                         }}>Return to Grind List</button>
-                                    </div>
-
-                                    <div>
+                        
                                         <button id="button" className="grindDelete" onClick={() => {
                                             GrindRepository.delete(grind.id)
                                                 .then(() => GrindRepository.getAllGrinds())
@@ -119,11 +117,12 @@ export const GrindByUser = () => {
                         if (getCurrentUser().id === grind.user.id) {
                             if (grind.grindComplete === false){
 
-                                return <section key={grind.id}>
+                                return <section key={grind.id} className="grindItem specificGrind">
+                                    <h3>{grind.grindGoal}</h3>
                                 <div>
                                     <img style={{ height: 100, width: 200 }} src={grind.game.image} alt={grind.gameName} />
                                 </div>
-                                <div key={`${grind.id}`}>Goal: {grind.grindGoal}, Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                                <div key={`${grind.id}`}> Game: {grind.game.gameName}, Creator: {grind.user.userName}
                                     <div>
 
                                         <button id="button" className="grindExpand" value={grind.id} onClick={() => {
@@ -136,7 +135,7 @@ export const GrindByUser = () => {
 
                             </section>
                         } else {
-                            return `${grind.grindGoal} is Completed!`
+                            return ""
                         } 
                         } else {
                             return ""

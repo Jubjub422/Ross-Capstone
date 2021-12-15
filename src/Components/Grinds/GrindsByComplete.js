@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useState } from "react"
 import { GrindRepository } from "../../Repositories/GrindRepository"
 import useSimpleAuth from "../Auth/useSimpleAuth"
+import "./Grind.css"
 
 
 
@@ -35,7 +36,7 @@ export const GrindsByCompleted = () => {
             {
                 grinds.map((grind) => {
                     if (grind.grindComplete && getCurrentUser().id === grind.user.id) {
-                        return <section key= {grind.id}>
+                        return <section key= {grind.id} className="grindItem">
                         <h3>{grind.grindGoal}</h3>
                         <div>
                             <img style={{ height: 100, width: 200 }} src={grind.game.image} alt={grind.gameName} />

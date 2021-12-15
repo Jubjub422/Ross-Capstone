@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import useSimpleAuth from "../Auth/useSimpleAuth"
+import "./NavBar.css"
 
 
 
@@ -15,7 +16,7 @@ export const NavBar = () => {
             <nav className="navbar navbar-expand-sm navbar-light bg-light fixed-top onTop">
                 
                 <div id="navbarNavDropdown" className="navbar-collapse collapse">
-                    <ul className="navbar-nav mr-auto">
+                    <ul className="navbar">
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Grind It Out</Link>
                         </li>
@@ -30,8 +31,7 @@ export const NavBar = () => {
                         </li>
                         
                         
-                    </ul>
-                    <ul className="navbar-nav">
+                  
                         <li className="nav-item dropdown">
                             
                                      <Link onClick={() => {
