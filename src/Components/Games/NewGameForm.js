@@ -30,7 +30,7 @@ export const NewGameForm =() => {
                     type="text"
                     required
                     autoFocus
-                    className="form-control"
+                    className="newGameInput"
                     onChange={event => {
                         const copy = { ...newGame }
                         copy.gameName = event.target.value
@@ -47,7 +47,7 @@ export const NewGameForm =() => {
                     type="url"
                     required
                     autoFocus
-                    className="form-control"
+                    className="newGameInput"
                     onChange={event => {
                         const copy = { ...newGame }
                         copy.image = event.target.value

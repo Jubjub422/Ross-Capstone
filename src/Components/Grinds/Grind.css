@@ -15,4 +15,30 @@ body{
     border-radius: 25px;
     margin: 3px 0;
     padding-left: 5px;
+    background-color: rgb(196, 194, 194);
+}
+.specificGrind{
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-top: 20px;
+    padding-left: 5px;
+    background-color: rgb(196, 194, 194);
+}
+.newGrindInput{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.newGameInput{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+select{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
