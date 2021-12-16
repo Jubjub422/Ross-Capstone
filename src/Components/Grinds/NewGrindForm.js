@@ -2,8 +2,9 @@ import { useState, useEffect } from "react"
 import {GrindRepository} from "../../Repositories/GrindRepository"
 import {GameRepository} from "../../Repositories/GameRepository"
 import useSimpleAuth from "../Auth/useSimpleAuth"
-
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import "./Grind.css"
+
 
 
 
@@ -41,19 +42,19 @@ export const NewGrindForm = () => {
         <form className="newGrindForm">
             <h2>Plan That Grind</h2>
             <div className="form-group">
-                <label htmlFor="grindGoal">Grind goal/name</label>
+                <label htmlFor="grindGoal">Grind goal/name:</label>
                 <input
                     type="text"
                     required
                     autoFocus
-                    className="form-control"
+                    className="newGrindInput"
                     onChange={event => {
                         const copy = { ...newGrind }
                         copy.grindGoal = event.target.value
                         setNewGrind(copy)
                     }}
                     id="grindGoal"
-                    placeholder="Grind goal/name"
+                    placeholder="This will be the title of the grind."
                 />
             </div>
             <div className="form-group">
