@@ -1,7 +1,7 @@
 
 
  .navbar {
-     display:flex;
+    display:flex;
     list-style-type: none;
     flex-wrap: nowrap;
     margin: 0;

@@ -5,6 +5,7 @@ import { Register } from "./Auth/Register"
 import { NavBar } from "./nav/NavBar"
 import { ApplicationViews } from "./ApplicationViews"
 import useSimpleAuth from "./Auth/useSimpleAuth"
+import { Footer } from "./nav/Footer"
 
 
 
@@ -17,6 +18,7 @@ export const GrindItOut = () => {
                 return <>
                     <NavBar />
                     <ApplicationViews />
+                    <Footer />
                 </>
             } else {
                 return <Redirect to="/login" />

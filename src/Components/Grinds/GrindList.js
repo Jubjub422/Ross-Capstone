@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
 import {GrindRepository} from "../../Repositories/GrindRepository"
 import {TaskRepository} from "../../Repositories/TaskRepository"
 import "./Grind.css"
@@ -17,7 +16,6 @@ export const GrindListComponent = () => {
     const [grinds, setGrinds] = useState([])
     const [showTasks, setShowTasks] = useState(false)
     const [specificGrind, setSpecificGrind] = useState({})
-    const history = useHistory()
     useEffect(() => {
         GrindRepository.getAllGrinds().then(data => setGrinds(data))
 
@@ -104,25 +102,6 @@ export const GrindListComponent = () => {
             </>
        
         }
-        {
-           <section>
-            <div>
-            <button type="button"
-                className="btn newGrind"
-                onClick={() => { history.push("/grinds/new") }}>
-                Make a new grind
-            </button>
-        
-            <button type="button addToGrind"
-                className="btn"
-                onClick={() => { history.push("/tasks") }}>
-                Want to add tasks to existing grinds?
-            </button>
-        </div>
-        </section>
-
-        }
-
         </>
     )
 
