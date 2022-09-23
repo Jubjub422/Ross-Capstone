@@ -1,28 +1,26 @@
 .footer {
-    display:flex;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    justify-content: space-between;
-    background-color: #333;
-    text-align: center;
-  }
-  .footerDiv{
-      margin-left: 10px
-  }
+  display: flex;
+  list-style-type: none;
+  flex-wrap: nowrap;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(39, 38, 38);
+  position: static;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
 
-  .footerButton{
-    background-color: #555555; /* Black */
-    border: none;
-    color: white;
-    padding: 14px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-  }
-  .footerButton:hover{
-        background-color: #111;
-      
-  }
+
+
+li a {
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}

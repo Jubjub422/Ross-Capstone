@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import {GrindRepository} from "../../Repositories/GrindRepository"
-import {GameRepository} from "../../Repositories/GameRepository"
+import { GrindRepository } from "../../Repositories/GrindRepository"
+import { GameRepository } from "../../Repositories/GameRepository"
 import useSimpleAuth from "../Auth/useSimpleAuth"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import "./Grind.css"
@@ -18,7 +18,7 @@ import "./Grind.css"
 
 export const NewGrindForm = () => {
 
-    
+
     const { getCurrentUser } = useSimpleAuth()
     const [games, setGames] = useState([])
     const history = useHistory()
@@ -31,7 +31,7 @@ export const NewGrindForm = () => {
     })
 
     useEffect(() => {
-         GameRepository.getAllGames()
+        GameRepository.getAllGames()
             .then(setGames)
     }, [])
 
@@ -40,7 +40,7 @@ export const NewGrindForm = () => {
 
     return (
         <form className="newGrindForm">
-            <h2>Plan That Grind</h2>
+            <h2 className="mainHeader">Plan That Grind</h2>
             <div className="form-group">
                 <label htmlFor="grindGoal">Grind goal/name:</label>
                 <input
@@ -90,7 +90,7 @@ export const NewGrindForm = () => {
                         className="btn btn-success "
                         onClick={() => {
                             GrindRepository.createNewGrind(newGrind)
-                                
+
                                 .then(setNewGrind(
                                     {
                                         grindGoal: "",

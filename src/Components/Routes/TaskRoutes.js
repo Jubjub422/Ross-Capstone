@@ -5,7 +5,7 @@ import { TaskGenerator } from "../Grinds/Tasks"
 
 export const TaskRoutes = () => {
     return (
-        <> 
+        <>
             <Route path="/tasks">
                 <TaskGenerator />
             </Route>

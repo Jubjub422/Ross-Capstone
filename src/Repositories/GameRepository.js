@@ -1,4 +1,4 @@
-import {Settings} from "./Settings"
+import { Settings } from "./Settings"
 import { fetchIt } from "./Fetch"
 
 // The “async” keyword declares an async function, which means two things: 
@@ -24,12 +24,12 @@ export const GameRepository = {
 
 
 //!Await Keyword
-// when calling fetch() with the await keyword, we're telling the async function to stop executing until the promise is resolved, 
-// at which point it can resume execution and return the resolved value. 
+// when calling fetch() with the await keyword, we're telling the async function to stop executing until the promise is resolved,
+// at which point it can resume execution and return the resolved value.
 // Rather than getting promises, we will get back the parsed JSON data that we expect.
 
 //!Promises
 // A promise is an object that may produce a single value some time in the future :
-//  either a resolved value, 
-// or a reason that it's not resolved (e.g., a network error occurred). 
+//  either a resolved value,
+// or a reason that it's not resolved (e.g., a network error occurred).
 //  Promises are eager, meaning that a promise will start doing whatever task you give it as soon as the promise constructor is invoked.

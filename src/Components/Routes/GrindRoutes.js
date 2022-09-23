@@ -18,7 +18,7 @@ export const GrindRoutes = () => {
             <Route exact path="/grinds/complete">
                 <GrindsByCompleted />
             </Route>
-            
+
             <Route exact path="/grinds/userGrinds">
                 <GrindByUser />
             </Route>
