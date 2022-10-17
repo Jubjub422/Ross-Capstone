@@ -30,6 +30,6 @@ export const GrindItOut = () => {
         <Route path="/register">
             <Register />
         </Route>
-        
+
     </>
 }

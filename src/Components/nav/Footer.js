@@ -1,30 +1,34 @@
-import { useHistory } from "react-router-dom"
+
+import { Link } from "react-router-dom"
 import "./Footer.css"
 
 
 
-export const Footer =() => {
-const history = useHistory()
+export const Footer = () => {
 
 
 
 
-    return ( <>
-        <section className="footer">
-         <div className="footerDiv">
-         <button type="button"
-             className="footerButton newGrind"
-             onClick={() => { history.push("/grinds/new") }}>
-             Make a new grind
-         </button>
-     
-         <button type="button"
-             className="footerButton addToGrind"
-             onClick={() => { history.push("/tasks") }}>
-             Want to add tasks to existing grinds?
-         </button>
-     </div>
-     </section>
-</>
-     )
+    return (<>
+
+
+        <div className="container">
+            <nav>
+
+                <div className="footerDiv">
+                    <ul className="footer">
+                        <li className="footerButton newGrind">
+                            <Link className="nav-link" to="/grinds/new">Make a New Grind?</Link>
+                        </li>
+                        <li className="footerButton addToGrind">
+                            <Link className="nav-link" to="/tasks">Want to Add Tasks to a Grind?</Link>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+    </>
+    )
 }
