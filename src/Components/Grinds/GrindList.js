@@ -3,14 +3,6 @@ import { GrindRepository } from "../../Repositories/GrindRepository"
 import { TaskRepository } from "../../Repositories/TaskRepository"
 import "./Grind.css"
 
-
-
-
-
-
-
-
-
 export const GrindListComponent = () => {
     const [tasks, setTasks] = useState([])
     const [grinds, setGrinds] = useState([])
@@ -80,25 +72,29 @@ export const GrindListComponent = () => {
                     :
                     <>
                         <h1 className="mainHeader"> Check out these new Grinds</h1>
-                        {
-                            grinds.map((grind) => {
-                                return (<section key={grind.id} className="grindItem">
-                                    <h3>{grind.grindGoal}</h3>
+                        <div className="grind-sections">
+                            {
+                                grinds.map((grind) => {
+                                    return (<section key={grind.id} className="grindItem">
+                                        <h3>{grind.grindGoal}</h3>
+                                        <div className="inner-grind">
 
-                                    <div><img style={{ height: 100, width: 200 }} src={grind.game.image} alt={grind.gameName} /></div>
+                                            <div><img style={{ height: 100, width: 200 }} src={grind.game.image} alt={grind.gameName} /></div>
 
-                                    <div key={`${grind.id}`} className="grind">Game: {grind.game.gameName}, Creator: {grind.user.userName}
-                                        <div><button id="button" className="grindExpand" value={grind.id} onClick={() => {
-                                            setSpecificGrind(grind)
+                                            <div key={`${grind.id}`} className="grind">Game: {grind.game.gameName}, Creator: {grind.user.userName}
+                                                <div><button id="button" className="grindExpand" value={grind.id} onClick={() => {
+                                                    setSpecificGrind(grind)
 
-                                            toggleTaskDisplay()
-                                        }}>Expand Grind</button>
+                                                    toggleTaskDisplay()
+                                                }}>Expand Grind</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </section>
-                                )
-                            })
-                        }
+                                    </section>
+                                    )
+                                })
+                            }
+                        </div>
                     </>
 
             }

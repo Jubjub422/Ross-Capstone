@@ -5,29 +5,13 @@ import useSimpleAuth from "../Auth/useSimpleAuth"
 import "./Grind.css"
 
 
-
-
-
-
-
-
-
-
 export const GrindsByCompleted = () => {
     const [grinds, setGrinds] = useState([])
     const { getCurrentUser } = useSimpleAuth()
 
-
-
-
     useEffect(() => {
         GrindRepository.getAllGrinds().then(data => setGrinds(data))
     }, [])
-
-
-
-
-
 
     return (
         <>
